@@ -13,9 +13,13 @@
         //borrando variable de sesion. 
         $_SESSION['MM_Username'] = NULL; // 
         $_SESSION['errorNewUser']= NULL;
+        $_SESSION['mensaje_usuarioNuevo'] = NULL;
+        $_SESSION['elUsuarioActualForm'] = NULL;
 
         unset($_SESSION['MM_Username']);
         unset($_SESSION['errorNewUser']);
+        unset($_SESSION['mensaje_usuarioNuevo']);
+        unset($_SESSION['elUsuarioActualForm']);
 
         $sinInicio = TRUE;
         $mostrarUsuario = FALSE;
@@ -56,6 +60,8 @@
         <title>CAFETERÍA EYCA</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="shortcut icon" href="images/logo.jpg">
+       
         
         <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700" rel="stylesheet">
@@ -92,7 +98,7 @@
                 <ul class="navbar-nav ml-auto">
                 <li class="nav-item active"><a href="index.php" class="nav-link">Inicio</a></li>
                 <li class="nav-item"><a href="menu.php" class="nav-link">Menú</a></li>
-                <li class="nav-item"><a href="servicios.php" class="nav-link">Servicios</a></li>
+               <!--  <li class="nav-item"><a href="servicios.php" class="nav-link">Servicios</a></li> -->
                 <!-- <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li> -->
                 <li class="nav-item"><a href="acercaDe.php" class="nav-link">Acerca De</a></li>
                 <li class="nav-item"><a href="contacto.php" class="nav-link">Contacto</a></li>
@@ -100,19 +106,17 @@
                 <?php if($habilitar){ ?>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="producto.php" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Producto</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown04">
-                            <a class="dropdown-item" href="producto_crear.php">Crear</a>
-                            <a class="dropdown-item" href="producto_actualizar.php">Actualizar</a>
-                            <a class="dropdown-item" href="producto_eliminar.php">Eliminar</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown04" style="margin:-10px;">
+                            <a class="dropdown-item" href="producto_nuevo.php">Crear</a>
+                            <a class="dropdown-item" href="producto_actualizar.php">Actualizar | Eliminar</a>
                         </div>
                     </li>
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="usuarios.php" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Usuarios</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown04">
-                            <a class="dropdown-item" href="usuarios_nuevo.php">Crear</a>
-                            <a class="dropdown-item" href="usuarios_perfil.php">Actualizar</a>
-                            <a class="dropdown-item" href="usuarios_eliminar.php">Eliminar</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown04" style="margin:-10px;">
+                            <a class="dropdown-item" href="usuarios_nuevoA.php">Crear</a>
+                            <a class="dropdown-item" href="usuario_perfilA.php">Actualizar | Eliminar</a>
                         </div>
                     </li>
                 <?php } ?>
@@ -120,8 +124,8 @@
                 <?php if($sinInicio) { ?><li class="nav-item"><a href="registrarse.php" class="nav-link">Iniciar Sesión</a></li> <?php } ?>
                 <?php if($mostrarUsuario) { ?>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="usuarios.php" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo($usuarioLogin);?></a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown04">
+                        <a class="nav-link dropdown-toggle" href="usuarios.php" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-transform: unset;"><?php echo($usuarioLogin);?></a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown04" style="margin:-10px;">
                             <a class="dropdown-item" href="usuario_perfil.php">Editar Perfil</a>
                             <a class="dropdown-item" href="<?php echo $logoutAction ?>">Cerrar Sesión</a>
                         </div>

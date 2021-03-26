@@ -84,7 +84,7 @@
 	    		</div>
 	    		<div class="book p-4">
 	    			<h3>Reservar una mesa</h3>
-	    			<form action="reservar.php" class="appointment-form">
+	    			<form action="#" class="appointment-form">
 	    				<div class="d-md-flex">
 		    				<div class="form-group">
 		    					<input type="text" class="form-control" placeholder="Nombres">
@@ -366,4 +366,5 @@
     <?php include('footer.php'); ?>
 	    
   </body>
+  
 </html>
